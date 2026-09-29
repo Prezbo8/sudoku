@@ -31,12 +31,12 @@
     background: var(--bg); color: var(--ink);
     font: 16px -apple-system, BlinkMacSystemFont, "SF Pro Rounded", system-ui, sans-serif;
     display: flex; flex-direction: column; align-items: center;
-    padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+    padding: max(12px, env(safe-area-inset-top)) 6px max(12px, env(safe-area-inset-bottom));
     touch-action: manipulation; user-select: none; -webkit-user-select: none;
   }
-  .wrap { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 14px; }
+  .wrap { width: 100%; max-width: 520px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
   header { display: flex; justify-content: space-between; align-items: center; }
-  header .info { font-size: 15px; color: var(--muted); }
+  header .info { font-size: 17px; color: var(--muted); }
   header .info b { color: var(--ink); font-weight: 600; }
   button {
     font: inherit; color: var(--ink); background: var(--btn);
@@ -45,14 +45,14 @@
   .newbtn { padding: 8px 14px; font-weight: 600; }
 
   #board {
-    display: grid; grid-template-columns: repeat(9, minmax(0, 1fr));
-    aspect-ratio: 1; width: 100%; background: var(--board);
+    display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); grid-template-rows: repeat(9, minmax(0, 1fr));
+    aspect-ratio: 1; width: 100%; flex-shrink: 0; background: var(--board);
     border: 2.5px solid var(--thick); border-radius: 8px; overflow: hidden;
   }
   .cell {
     position: relative; display: flex; align-items: center; justify-content: center;
     border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    font-size: min(7.5vw, 34px); font-weight: 500; color: var(--user);
+    font-size: min(9.5vw, 44px); line-height: 1; font-weight: 500; color: var(--user);
   }
   .cell:nth-child(9n) { border-right: none; }
   .cell:nth-child(n+73) { border-bottom: none; }
@@ -67,20 +67,20 @@
   .notes {
     position: absolute; inset: 1px; display: grid;
     grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr);
-    font-size: min(2.8vw, 12px); color: var(--muted); font-weight: 500;
+    font-size: min(3.4vw, 15px); color: var(--muted); font-weight: 500;
   }
   .notes span { display: flex; align-items: center; justify-content: center; }
   .notes span.hl { color: var(--user); font-weight: 700; }
 
   .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
   .tools button:disabled { opacity: .4; }
-  .tools button { padding: 10px 0; font-size: 14px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
-  .tools button .ic { font-size: 22px; line-height: 1; }
+  .tools button { padding: 14px 0; font-size: 15px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .tools button .ic { font-size: 26px; line-height: 1; }
   .tools button.on { background: var(--btn-on); color: #fff; border-color: var(--btn-on); }
 
-  .pad { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; }
-  .pad button { aspect-ratio: 0.6; font-size: min(7vw, 30px); font-weight: 500; color: var(--user); padding: 0 0 12px; position: relative; }
-  .pad button small { position: absolute; bottom: 5px; left: 0; right: 0; font-size: 11px; color: var(--muted); }
+  .pad { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 5px; flex: 1; min-height: 80px; max-height: 170px; }
+  .pad button { font-size: min(10.5vw, 46px); font-weight: 500; color: var(--user); padding: 0 0 16px; position: relative; }
+  .pad button small { position: absolute; bottom: 7px; left: 0; right: 0; font-size: 13px; color: var(--muted); }
   .pad button.done { visibility: hidden; }
 
   #overlay {

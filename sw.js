@@ -1,5 +1,5 @@
 // Bump this when any file changes so phones pick up the new version.
-const CACHE = 'sudoku-v2';
+const CACHE = 'sudoku-v3';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-180.png', './icon-512.png', './levels.js'];
 
 self.addEventListener('install', e => {
